@@ -1,27 +1,27 @@
 const express = require("express")
-const app = express()
-const port = 3021
+const router = express.Router()
+
 
 app.use(express.static("public"))
 
 //Index 
-app.get("/posts", (req, res) => {
+app.get("/", (req, res) => {
     res.send("Lista dei post")
 })
 //Show
-app.get("/posts/:id", (req, res) => {
+app.get("//:id", (req, res) => {
     res.send("Lista dei posti con ID: "+ req.params.id) 
 })
 
 //store
-app.post("/posts", (req, res) => {
+app.post("/", (req, res) => {
     res.send("Creazione nuovo post") 
 })
 //Upgrade
-app.put("/posts/:id", (req, res) => {
+app.put("/:id", (req, res) => {
     res.send("Modifica integrale "+ req.params.id) 
 })
-app.delete("/posts/:id", (req, res) => {
+app.delete("/:id", (req, res) => {
     res.send("Eliminazione "+ req.params.id) 
 })
 
@@ -29,3 +29,5 @@ app.delete("/posts/:id", (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)
 })
+
+module.exports = router;
