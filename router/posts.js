@@ -34,8 +34,7 @@ router.get("/", (req, res) => {
 //Show
 router.get("/:id", (req, res) => {
     const id = parseInt(req.params.id); // stringa
-
-    const post = posts.find();
+    const post = posts.find((post) => post.id === id);
 
     res.json(post);
     // res.send("Lista dei posti con ID: "+ req.params.id) 
