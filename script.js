@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 const port = 3021
 
-const postsRouter = require("./router/postrouter")
+const postsRouter = require("./router/posts")
 
 app.use(express.static("public"))
 
